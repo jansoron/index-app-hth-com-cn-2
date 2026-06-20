@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雷速 · 稳定入口说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background-color: #f5f7fa;
+            color: #1e293b;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0e1622 0%, #1a2634 100%);
+            color: #e2e8f0;
+            padding: 4rem 1.5rem 3.5rem;
+            text-align: center;
+            border-bottom: 4px solid #3b82f6;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(59, 130, 246, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.75rem;
+            color: #f1f5f9;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .intro {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 2.2rem 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            margin-bottom: 2.5rem;
+        }
+
+        .intro p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-card {
+            flex: 1 1 240px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #3b82f6;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.12);
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .scenario-note {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 1.8rem 2rem;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .scenario-note h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-note ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .scenario-note li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.6rem;
+            color: #334155;
+            font-size: 0.98rem;
+        }
+
+        .scenario-note li::before {
+            content: '·';
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            margin: 2.5rem 0 1.5rem;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .closing {
+            text-align: center;
+            padding: 2rem 0 0.5rem;
+            font-size: 1rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2.5rem;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        a:hover {
+            border-bottom-color: #2563eb;
+        }
+
+        .inline-link {
+            color: #1e40af;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .sub {
+                font-size: 1rem;
+            }
+            .intro {
+                padding: 1.5rem 1.2rem;
+            }
+            .feature-card {
+                flex: 1 1 100%;
+            }
+            .scenario-note,
+            .faq-summary {
+                padding: 1.3rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>从一处安定的入口开始</h1>
+    <p class="sub">不是每个页面都需要反复寻找，有时你只需要一个记住就不会丢的位置。</p>
+</section>
+
+<div class="container">
+
+    <div class="intro">
+        <p>无论网络环境怎么变化，使用习惯如何迁移，总有些服务需要保持稳定的落脚点。对于长期依赖某类信息流或数据工具的人来说，一个可靠的入口能省去大量重复配置的精力。</p>
+        <p><a href="https://zh2-leisu.com" class="inline-link">雷速</a> 正是这样一个被保留的页面地址。它不追求花哨的营销话术，也不依赖短暂的热点——它的价值在于：当你需要的时候，它在那里，结构清晰，直达核心功能，没有多余的绕路。</p>
+        <p>这个页面所做的，不过是把常用的路径、说明与提示整理成可读的形式，让第一次接触的人也能快速理解它的用途。同时也让老用户不至于在版本迭代后感到陌生。</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>固定入口</h3>
+            <p>域名长期维护，避免频繁更换带来的记忆负担。无论使用哪一种浏览器或设备，同一地址指向同一套内容体系。</p>
+        </div>
+        <div class="feature-card">
+            <h3>内容说明先行</h3>
+            <p>页面本身即充当说明文档的角色。功能模块、使用前提、常见问题都在同一页面内呈现，减少跳转损耗。</p>
+        </div>
+        <div class="feature-card">
+            <h3>保持克制</h3>
+            <p>不滥用弹窗、不强制关注、不隐藏关键信息。每个元素都有它存在的理由，而不是为了填充版面。</p>
+        </div>
+    </div>
+
+    <div class="scenario-note">
+        <h2>适合这样的你</h2>
+        <ul>
+            <li>希望为某个常用服务保留一个干净、无干扰的访问路径</li>
+            <li>需要一个能被快速记住并分享给他人的地址</li>
+            <li>厌倦了每次都要从搜索或收藏夹深层翻找入口</li>
+            <li>偏好清晰直接的界面，而非信息轰炸式设计</li>
+        </ul>
+    </div>
+
+    <div class="faq-summary">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <strong>页面会经常变动吗？</strong>
+            <p>结构会保持稳定，内容会根据功能迭代做适度更新，但不会突然改变核心布局或移除必要说明。</p>
+        </div>
+        <div class="faq-item">
+            <strong>是否推荐给其他人使用？</strong>
+            <p>如果你觉得入口清晰、说明够用，完全可以分享 <a href="https://zh2-leisu.com">雷速</a> 的地址。它就是一个页面，不需要注册或邀请。</p>
+        </div>
+        <div class="faq-item">
+            <strong>遇到问题应该怎么办？</strong>
+            <p>页面上方一般会列出基本的使用提示，也可通过页面内的联系方式寻找支持。不设门槛，不玩文字游戏。</p>
+        </div>
+    </div>
+
+    <div class="closing">
+        <p>一个入口，一份说明。不需要更多修饰。</p>
+        <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #94a3b8;">—— 保持简单，就是最好的维护。</p>
+    </div>
+
+</div>
+
+</body>
+</html>
